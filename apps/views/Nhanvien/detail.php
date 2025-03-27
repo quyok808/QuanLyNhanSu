@@ -81,14 +81,14 @@ ob_start();
         <?php if (isset($error)): ?>
             <div class="alert alert-danger"> <?php echo htmlspecialchars($error); ?> </div>
         <?php else: ?>
-            <?php if ($nhanvien): ?>
-                <h3><?php echo htmlspecialchars($nhanvien['Ten_NV']); ?></h3>
+            <?php if ($currentNhanvien): ?>
+                <h3><?php echo htmlspecialchars($currentNhanvien['Ten_NV']); ?></h3>
                 <div class="student-info">
-                    <p><strong>Mã NV:</strong> <?php echo htmlspecialchars($nhanvien['Ma_NV']); ?></p>
-                    <p><strong>Giới Tính:</strong> <?php echo htmlspecialchars($nhanvien['Phai']); ?></p>
-                    <p><strong>Nơi Sinh:</strong> <?php echo htmlspecialchars($nhanvien['Noi_Sinh']); ?></p>
-                    <p><strong>Phòng Ban:</strong> <?php echo htmlspecialchars($nhanvien['Ten_Phong']); ?></p>
-                    <p><strong>Lương:</strong> <?php echo htmlspecialchars($nhanvien['Luong']); ?></p>
+                    <p><strong>Mã NV:</strong> <?php echo htmlspecialchars($currentNhanvien['Ma_NV']); ?></p>
+                    <p><strong>Giới Tính:</strong> <?php echo htmlspecialchars($currentNhanvien['Phai']); ?></p>
+                    <p><strong>Nơi Sinh:</strong> <?php echo htmlspecialchars($currentNhanvien['Noi_Sinh']); ?></p>
+                    <p><strong>Phòng Ban:</strong> <?php echo htmlspecialchars($currentNhanvien['Ten_Phong']); ?></p>
+                    <p><strong>Lương:</strong> <?php echo htmlspecialchars($currentNhanvien['Luong']); ?></p>
                 </div>
             <?php else: ?>
                 <div class="alert alert-warning">Không tìm thấy nhân viên với mã <?php echo htmlspecialchars($id); ?>.</div>
