@@ -48,13 +48,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./Nhanvien">Nhân viên</a>
+                        <a class="nav-link" href="/QLNS/Nhanvien">Nhân viên</a>
                     </li>
                     <li class="nav-item">
                         <?php if (isset($_SESSION['role'])): ?>
-                            <a class="nav-link" href="./Auth/Logout">Đăng xuất</a>
+                            <a class="nav-link" href="/QLNS/Auth/Logout">Đăng xuất</a>
                         <?php else: ?>
-                            <a class="nav-link" href="./Auth">Đăng nhập</a>
+                            <a class="nav-link" href="/QLNS/Auth">Đăng nhập</a>
                         <?php endif; ?>
                     </li>
                 </ul>
