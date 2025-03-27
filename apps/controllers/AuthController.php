@@ -20,13 +20,21 @@ class AuthController
             print_r($_POST);
             $Check = $this->user->login($_POST);
             if (is_null($Check)) {
-                header("Location: ../Auth");
+                header("Location: /QLNS/Auth");
                 exit;
             } else {
-                $_SESSION['role'] = $Check['role'];
-                header("Location: ../Nhanvien");
+                header("Location: /QLNS/Nhanvien");
                 exit;
             }
         }
+    }
+
+    public function Logout()
+    {
+        session_start();
+        session_unset();  // Xóa tất cả biến session
+        session_destroy(); // Hủy session hoàn toàn
+        header("Location: /QLNS/Nhanvien");
+        exit;
     }
 }

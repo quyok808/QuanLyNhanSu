@@ -6,7 +6,7 @@ ob_start();
 <div class="card p-4 shadow-sm">
 
     <h4 class="text-center">Đăng nhập</h4>
-    <form method="post" action="/QLNS/Auth/login" enctype="multipart/form-data">
+    <form method="post" action="/QLNS/Auth/login">
         <div class="mb-3">
             <label class="form-label">Mã NV</label>
             <input type="text" name="username" class="form-control" required>
@@ -16,7 +16,6 @@ ob_start();
             <input type="text" name="password" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-success w-100">Đăng nhập</button>
-
     </form>
 
 </div>

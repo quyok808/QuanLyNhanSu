@@ -31,10 +31,11 @@ ob_start();
 <body>
     <div class="container">
         <h2 class="text-center mb-4">Danh sách nhân viên</h2>
-        <div class="text-end mb-3">
-            <a href="./Nhanvien/create" class="btn btn-primary">Thêm nhân viên mới</a>
-        </div>
-        <?php print_r($_SESSION['role']); ?>
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+            <div class="text-end mb-3">
+                <a href="./Nhanvien/create" class="btn btn-primary">Thêm nhân viên mới</a>
+            </div>
+        <?php endif; ?>
         <div class="table-responsive">
             <table class="table table-bordered table-hover text-center align-middle">
                 <thead class="table-dark">
@@ -45,6 +46,7 @@ ob_start();
                         <th>Nơi sinh</th>
                         <th>Tên phòng</th>
                         <th>Lương</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,9 +65,11 @@ ob_start();
                             <td><?php echo $nhanvien['Ten_Phong']; ?></td>
                             <td><?php echo $nhanvien['Luong']; ?></td>
                             <td>
-                                <a href="./Nhanvien/edit/<?php echo $nhanvien['Ma_NV']; ?>" class="btn btn-success btn-sm">Sửa</a>
                                 <a href="./Nhanvien/detail/<?php echo $nhanvien['Ma_NV']; ?>" class="btn btn-info btn-sm">Chi tiết</a>
-                                <a href="./Nhanvien/delete/<?php echo $nhanvien['Ma_NV']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xoá nhân viên này?');">Xoá</a>
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                                    <a href="./Nhanvien/edit/<?php echo $nhanvien['Ma_NV']; ?>" class="btn btn-success btn-sm">Sửa</a>
+                                    <a href="./Nhanvien/delete/<?php echo $nhanvien['Ma_NV']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xoá nhân viên này?');">Xoá</a>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

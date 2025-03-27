@@ -18,12 +18,12 @@ class User
             $stmt->execute([$data['username']]);
             $nhanvien = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($nhanvien && md5($data['password']) == $nhanvien['password']) {
+            if ($nhanvien && $data['password'] == $nhanvien['password']) {
                 $_SESSION['role'] = $nhanvien['role'];
-                return true; // Trả về thông tin nhân viên nếu đăng nhập thành công
+                return $nhanvien; // Trả về thông tin nhân viên nếu đăng nhập thành công
             }
             // Lưu mã sinh viên vào session
-            return false;
+            return null;
         } catch (\Throwable $th) {
             throw $th;
         }
